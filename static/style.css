@@ -1,0 +1,331 @@
+:root {
+  --bg: #f9fafb;          /* soft white-gray */
+  --card: #ffffff;        /* white cards */
+  --text: #111827;        /* rich dark gray */
+  --muted: #6b7280;       /* medium gray */
+  --accent: #3b82f6;      /* bright blue */
+  --ok: #16a34a;          /* success */
+  --warn: #f59e0b;        /* warning */
+  --err: #dc2626;         /* error */
+  --border: #e5e7eb;      /* light border */
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 700px at 10% -10%, #e0f2fe 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.topbar {
+  padding: 24px 16px 12px;
+  background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0));
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.topbar h1 { margin: 0; font-size: 30px; letter-spacing: 0.3px; background: linear-gradient(90deg, #3b82f6, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.subtitle { margin: 6px 0 8px; color: var(--muted); }
+.status { font-size: 12px; color: var(--muted); position: absolute; top: 18px; right: 16px; }
+
+.navbar { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; justify-content: center; }
+.navbar a { color: var(--text); text-decoration: none; font-size: 14px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: #f3f4f6; }
+.navbar a:hover { background: #e0f2fe; border-color: #93c5fd; }
+.navbar a.active { background: #dbeafe; border-color: #93c5fd; color: #1e40af; }
+
+.container {
+  max-width: 1200px;
+  margin: 18px auto 48px;
+  padding: 0 16px;
+}
+
+.card {
+  background: linear-gradient(180deg, #ffffff, #f3f4f6);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: #93c5fd; }
+.card h2 { margin: 0 0 8px; font-size: 20px; }
+.card p { color: var(--muted); margin-top: 6px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--muted); }
+input, textarea, select {
+  background: #ffffff;
+  color: var(--text);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus { border-color: #93c5fd; box-shadow: 0 0 0 2px rgba(147,197,253,0.3); }
+
+.row { display: flex; gap: 12px; align-items: flex-end; margin: 8px 0; flex-wrap: wrap; }
+.grow { flex: 1; }
+
+.actions { margin-top: 12px; }
+button {
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+button:hover { filter: brightness(1.1); }
+
+.results {
+  margin-top: 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.charts { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+canvas { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; }
+
+/* Home features (no cards) */
+.features { display:grid; grid-template-columns:1fr; gap:10px; }
+.feature-row { display:flex; align-items:center; justify-content:space-between; border:1px solid var(--border); background:#fff; border-radius:10px; padding:14px; transition: transform 160ms ease, box-shadow 160ms ease; }
+.feature-row:hover { transform: translateY(-2px); box-shadow:0 10px 20px rgba(0,0,0,0.08); border-color:#93c5fd; }
+.feature-row h3 { margin:0; font-size:18px; color:#0f172a; }
+.feature-row p { margin:4px 0 0; color: var(--muted); font-size:14px; }
+.feature-row .actions { margin:0; }
+
+/* Hero */
+.hero { margin:18px 0; padding:18px; border:1px solid var(--border); border-radius:14px; background: linear-gradient(180deg, rgba(59,130,246,0.10), rgba(59,130,246,0.02)); }
+.hero h2 { margin: 0 0 6px; font-size: 22px; }
+.hero p { margin: 4px 0 0; color: var(--muted); }
+
+.footer {
+  display: flex; gap: 12px; align-items: center; justify-content: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding: 16px; font-size: 13px;
+}
+
+.pill { display: inline-block; padding: 2px 10px; border: 1px solid rgba(59,130,246,0.35); border-radius: 999px; font-size: 12px; color: #1e40af; background: rgba(59,130,246,0.08); }
+.ok { color: var(--ok); }
+.warn { color: var(--warn); }
+.err { color: var(--err); }
+
+.upload { display: flex; flex-direction: column; gap: 8px; }
+.uploadBtn { border: 1px dashed var(--border); padding: 10px 12px; border-radius: 8px; text-align: center; cursor: pointer; }
+.uploadBtn:hover { border-color: #93c5fd; }
+
+.match { padding: 10px; border-bottom: 1px dashed var(--border); }
+.match:last-child { border-bottom: none; }
+.match h3 { margin: 0 0 4px; font-size: 16px; }
+.meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.muted { color: var(--muted); }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+.list { margin: 6px 0 0 16px; }
+
+pre { white-space: pre-wrap; word-break: break-word; }
+
+/* Vertical professional form layout */
+.form-vertical { display: flex; flex-direction: column; gap: 16px; } /* Increased gap for better spacing */
+.form-vertical .q {
+  display: flex; /* Changed to flex for better control */
+  flex-direction: column;
+  gap: 12px; /* Gap between question number, text, and options */
+  align-items: flex-start; /* Align question content to the start */
+  padding: 15px; /* Add padding to question card */
+  border: 1px solid var(--border); /* Visual separation for each question */
+  border-radius: 12px;
+  background: var(--card); /* Match card background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Subtle shadow */
+}
+.qnum {
+  width: 30px; height: 30px; /* Slightly smaller for cleaner look */
+  border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--accent); /* Use accent color for number border */
+  background: var(--accent); /* Accent background for number */
+  color: #ffffff; /* White text for accent background */
+  font-weight: 700; /* Bolder font */
+  font-size: 14px;
+  margin-bottom: 8px; /* Space below number */
+}
+.q label {
+  margin: 0;
+  font-size: 1.15em; /* Slightly larger question text */
+  color: var(--text);
+  font-weight: 600; /* Bolder question text */
+  line-height: 1.4;
+}
+.q small { color: var(--muted); }
+
+/* Status dot colors for connectivity indicator */
+.status-dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; background: #9ca3af; vertical-align: middle; box-shadow: 0 0 0 2px rgba(0,0,0,0.05) inset; }
+.status-dot.ok { background: var(--ok); }
+.status-dot.warn { background: var(--warn); }
+.status-dot.err { background: var(--err); }
+
+/* Styles for adaptive quiz options */
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px; /* More space above options */
+  margin-bottom: 10px; /* More space below options */
+  width: 100%; /* Ensure options take full width within question block */
+}
+
+.quiz-option-btn {
+  background: #f3f4f6;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 15px; /* Larger padding for better touch targets */
+  border-radius: 8px; /* Slightly less rounded for a modern look */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-grow: 1; /* Allow buttons to grow and fill space */
+  text-align: center;
+  font-size: 0.95em;
+  min-width: 120px; /* Minimum width for options */
+}
+
+.quiz-option-btn:hover {
+  background: var(--accent); /* Hover with accent color */
+  border-color: var(--accent);
+  color: #ffffff; /* White text on hover */
+}
+
+.quiz-option-btn.selected {
+  background: var(--accent); /* Selected with accent color */
+  border-color: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(59,130,246,0.25); /* Subtle shadow for selected */
+}
+
+.quiz-custom-input {
+  width: 100%;
+  margin-top: 10px; /* More space above custom input */
+  padding: 10px 12px; /* Match other inputs */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: var(--text);
+}
+.quiz-custom-input:focus { border-color: #93c5fd; box-shadow: 0 0 0 2px rgba(147,197,253,0.3); }
+
+/* Ensure button styles for Next/Submit are consistent */
+.actions button {
+  background: var(--accent); /* Use accent color for action buttons */
+  color: #ffffff;
+  border: none;
+  padding: 12px 18px; /* Larger action buttons */
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+  font-weight: 600;
+  font-size: 1.05em;
+}
+.actions button:hover { filter: brightness(1.1); }
+#treeContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 450px;
+  z-index: 1000;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adjust main content area to prevent overlap with fixed tree */
+.grow-main-content {
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  #treeContainer {
+    position: relative;
+    width: 100%;
+    height: 1500px;
+    margin: 50px auto;
+  }
+  .grow-main-content {
+    margin-left: auto;
+    padding-left: 16px;
+  }
+}
+
+/* Checkbox and task styling for Grow section */
+.roadmap-week {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fdfdfd;
+}
+
+.roadmap-week h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  cursor: pointer; /* Indicate it's clickable */
+  font-size: 0.95em;
+  color: var(--text);
+}
+
+.task-item input[type="checkbox"] {
+  min-width: 20px; /* Ensure checkbox is visible and clickable */
+  min-height: 20px;
+  accent-color: var(--ok); /* Use a nice green color for checked state */
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+.task-item label {
+  margin: 0; /* Override default label margin */
+  cursor: pointer;
+  flex-grow: 1; /* Allow label text to take available space */
+  display: block; /* Ensure label content flows correctly */
+  color: var(--text);
+}
+
+.task-item.completed label {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-style: italic;
+}
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.leaf {
+  animation: sway 5s infinite ease-in-out;
+}
+
