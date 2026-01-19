@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configure Groq API
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY environment variable not set!")
 client = Groq(api_key=GROQ_API_KEY)
