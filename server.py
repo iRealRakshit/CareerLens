@@ -7,16 +7,22 @@ import urllib.parse
 import threading
 import time
 import hashlib
-from groq import Groq # Import Groq library
+from groq import Groq
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configure Groq API
-# It is recommended to use environment variables for API keys in production.
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY environment variable not set!")
 client = Groq(api_key=GROQ_API_KEY)
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant") # Default Groq model
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
 
-# Host and Port configuration
+# Host and Port configuration (for local development)
+# In production, Gunicorn will handle this.
 HOST = os.environ.get("HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
 
@@ -816,13 +822,11 @@ class CareerLensHandler(SimpleHTTPRequestHandler):
             self._json({"error": str(e), "where": "roadmap"}, 200)
 
 
-def run():
-    httpd = HTTPServer((HOST, PORT), CareerLensHandler)
 
+# Create an app instance for Gunicorn
+app = HTTPServer((HOST, PORT), CareerLensHandler)
 
-    print(f"CareerLens server running on http://{HOST}:{PORT} (model={GROQ_MODEL}, via Groq API)")
-    httpd.serve_forever()
-
-
+# Kept for local development; Gunicorn will not use this.
 if __name__ == "__main__":
-    run()
+    print(f"CareerLens server running locally on http://{HOST}:{PORT}")
+    app.serve_forever()
