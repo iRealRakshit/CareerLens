@@ -25,7 +25,7 @@ GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
 # In production, Gunicorn will handle this.
 HOST = os.environ.get("HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
-
+HOST = "0.0.0.0"
 
 def call_groq(prompt: str) -> str:
     try:
