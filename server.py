@@ -12,7 +12,9 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
+from dotenv import load_dotenv
 load_dotenv()
+
 
 # Configure Groq API
 GROQ_API_KEY = os.environ["GROQ_API_KEY"]
@@ -26,6 +28,7 @@ GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
 HOST = os.environ.get("HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
 HOST = "0.0.0.0"
+print("GROQ KEY FOUND:", bool(os.environ.get("GROQ_API_KEY")))
 
 def call_groq(prompt: str) -> str:
     try:
