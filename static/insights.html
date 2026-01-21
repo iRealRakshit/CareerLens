@@ -1,2 +1,53 @@
-<!doctype html><html lang="en">  <head>    <meta charset="utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1" />    <title>CareerLens – Market Insights</title>    <link rel="stylesheet" href="/static/style.css" />  </head>  <body>    <header class="topbar">      <h1>CareerLens</h1>      <p class="subtitle">Market Insight Dashboard</p>      <nav class="navbar">        <a href="/" class="nav-home">Home</a>        <a href="/quiz" class="nav-quiz">Quiz</a>        <a href="/insights" class="nav-insights">Insights</a>        <a href="/recommend" class="nav-recommend">Recommendations</a>        <a href="/compare" class="nav-compare">Compare</a>        <a href="/resume" class="nav-resume">Resume</a>        <a href="/grow" class="nav-grow">Grow</a>      </nav>
-      <div class="status status-dot" id="status" title="Checking AI connectivity"></div>    </header>    <main class="container">      <a href="/" class="pill">← Home</a>      <section class="card">        <h2>Market Insight Dashboard</h2>        <div class="row">          <label class="grow">Role<input id="insightRole" placeholder="e.g., Data Analyst" /></label>          <label>Region<input id="insightRegion" placeholder="e.g., US, Canada, Global" /></label>          <button id="loadInsights">Analyze</button>        </div>        <div id="insightOutput" class="results"></div>        <div class="charts">          <canvas id="trendChart" width="600" height="260"></canvas>          <canvas id="salaryChart" width="600" height="260"></canvas>        </div>      </section>    </main>    <script src="/static/shared.js"></script>    <script src="/static/insights.js"></script>  </body>  </html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CareerLens – Market Insights</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>CareerLens</h1>
+      <p class="subtitle">Market Insight Dashboard</p>
+      <nav class="navbar">
+        <a href="/" class="nav-home">Home</a>
+        <a href="/quiz" class="nav-quiz">Quiz</a>
+        <a href="/insights" class="nav-insights">Insights</a>
+        <a href="/recommend" class="nav-recommend">Recommendations</a>
+        <a href="/compare" class="nav-compare">Compare</a>
+        <a href="/resume" class="nav-resume">Resume</a>
+        <a href="/grow" class="nav-grow">Grow</a>
+      </nav>
+      <div
+        class="status status-dot"
+        id="status"
+        title="Checking AI connectivity"
+      ></div>
+    </header>
+    <main class="container">
+      <a href="/" class="pill">← Home</a>
+      <section class="card">
+        <h2>Market Insight Dashboard</h2>
+        <div class="row">
+          <label class="grow"
+            >Role<input id="insightRole" placeholder="e.g., Data Analyst"
+          /></label>
+          <label
+            >Region<input
+              id="insightRegion"
+              placeholder="e.g., US, Canada, Global"
+          /></label>
+          <button id="loadInsights">Analyze</button>
+        </div>
+        <div id="insightOutput" class="results"></div>
+        <div class="charts">
+          <canvas id="trendChart" width="600" height="260"></canvas>
+          <canvas id="salaryChart" width="600" height="260"></canvas>
+        </div>
+      </section>
+    </main>
+    <script src="/static/shared.js"></script>
+    <script src="/static/insights.js"></script>
+  </body>
+</html>
