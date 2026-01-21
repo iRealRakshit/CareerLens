@@ -45,12 +45,13 @@
             <div id="growBar" style="background:linear-gradient(90deg,#16a34a,#22c55e);height:10px;border-radius:6px;width:0%; transition: width 0.5s ease-in-out;"></div>
           </div>
           <div class="muted" id="growPct">0/0 tasks completed</div>
+           <div id="treeContainer"></div> <!-- NEW: Container for the growing tree -->
+
         </div>
         <div id="growOutput" class="results"></div>
       </section>
     </main>
-    <div id="treeContainer"></div> <!-- NEW: Container for the growing tree -->
-
+   
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="/static/perlin.js"></script>
     <script src="/static/shared.js"></script>
