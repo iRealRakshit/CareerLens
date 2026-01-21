@@ -1,62 +1,88 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CareerLens — Growth Roadmap</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <h1>CareerLens</h1>
-      <p class="subtitle">Dream Job Skill Roadmap</p>      <nav class="navbar">
-        <a href="/" class="nav-home">Home</a>
-        <a href="/quiz" class="nav-quiz">Quiz</a>
-        <a href="/insights" class="nav-insights">Insights</a>
-        <a href="/recommend" class="nav-recommend">Recommendations</a>
-        <a href="/compare" class="nav-compare">Compare</a>
-        <a href="/resume" class="nav-resume">Resume</a>
-        <a href="/grow" class="nav-grow">Grow</a>
-      </nav><div class="status status-dot" id="status" title="Checking AI connectivity"></div>
-    </header>
-    <main class="container grow-main-content">
-      <section class="card">
-        <h2>Grow Toward Your Dream Job</h2>
-        <div id="growDescription" class="muted" style="margin-bottom: 15px;">
-            Envision your career as a growing tree. Each skill you master on your personalized roadmap,
-            will help your tree grow, symbolizing your progress and skill development.
-            Let's cultivate your career together!
-        </div>
-        <div class="row">
-          <label class="grow">What is your dream job?<input id="growJob" placeholder="e.g., Data Analyst" /></label>
-          <label>Weeks
-            <select id="growWeeks">
-              <option>8</option>
-              <option selected>10</option>
-              <option>12</option>
-            </select>
-          </label>
-          <button id="growGen">Generate Roadmap</button>
-          <button id="resetRoadmap" style="background: #ef4444; margin-left: 10px;">Reset Roadmap</button> <!-- New button -->
-        </div>
-        <div id="growProgress" class="results" style="display:none; position:relative; min-height:100px;"> <!-- Min-height adjusted -->
-          <div id="growTextStatus" class="muted" style="margin-bottom: 10px;">0% complete — Keep growing your career tree!</div>
-          <div class="bar" style="background:linear-gradient(90deg,#e0e0e0,#f0f0f0);height:10px;border-radius:6px;opacity:0.8;margin:6px 0;position:relative; overflow:hidden;">
-            <div id="growBar" style="background:linear-gradient(90deg,#16a34a,#22c55e);height:10px;border-radius:6px;width:0%; transition: width 0.5s ease-in-out;"></div>
-          </div>
-          <div class="muted" id="growPct">0/0 tasks completed</div>
-           <div id="treeContainer"></div> <!-- NEW: Container for the growing tree -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CareerLens — Growth Roadmap</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
 
-        </div>
-        <div id="growOutput" class="results"></div>
-      </section>
-    </main>
-   
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="/static/perlin.js"></script>
-    <script src="/static/shared.js"></script>
-    <script src="/static/tree.js"></script>
-    <script src="/static/grow.js"></script>
-  </body>
-  </html>
+<body>
 
+<header class="topbar">
+  <h1>CareerLens</h1>
+  <p class="subtitle">Dream Job Skill Roadmap</p>
+
+  <nav class="navbar">
+    <a href="/">Home</a>
+    <a href="/quiz">Quiz</a>
+    <a href="/insights">Insights</a>
+    <a href="/recommend">Recommendations</a>
+    <a href="/compare">Compare</a>
+    <a href="/resume">Resume</a>
+    <a href="/grow" class="active">Grow</a>
+  </nav>
+
+  <div class="status status-dot" id="status"></div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Grow Toward Your Dream Job</h2>
+
+    <p class="muted">
+      Envision your career as a growing tree. Each completed task helps it grow.
+    </p>
+
+    <div class="row">
+      <label class="grow">
+        Dream Job
+        <input id="growJob" placeholder="e.g., Data Analyst" />
+      </label>
+
+      <label>
+        Weeks
+        <select id="growWeeks">
+          <option>8</option>
+          <option selected>10</option>
+          <option>12</option>
+        </select>
+      </label>
+
+      <button id="growGen">Generate</button>
+      <button id="resetRoadmap" class="danger">Reset</button>
+    </div>
+
+    <!-- GROW PROGRESS -->
+    <div id="growProgress" class="grow-progress" style="display:none;">
+
+      <!-- LEFT: progress + roadmap -->
+      <div class="grow-main-content">
+        <div id="growTextStatus" class="muted">
+          0% complete — Keep growing your career tree!
+        </div>
+
+        <div class="bar">
+          <div id="growBar"></div>
+        </div>
+
+        <div class="muted" id="growPct">0/0 tasks completed</div>
+
+        <div id="growOutput"></div>
+      </div>
+
+      <!-- RIGHT: TREE -->
+      <div id="treeContainer"></div>
+
+    </div>
+  </section>
+</main>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="/static/perlin.js"></script>
+<script src="/static/shared.js"></script>
+<script src="/static/tree.js"></script>
+<script src="/static/grow.js"></script>
+
+</body>
+</html>
