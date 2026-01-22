@@ -260,23 +260,32 @@ button.danger {
 
 @media (max-width: 480px) {
   .topbar h1 { font-size: 24px; }
-  .card { padding: 12px; }
-   #treeContainer {
-  position: relative;
-  width: 100p;
-  overflow: visible;
-  height: 500px;
-  margin:  auto;
-  z-index: 10;
-  padding:auto;
-  pointer-events: auto;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
-  
-  display: flex;
-  justify-content:left;
-  
+ 
+  #treeContainer {
+    position: relative;
+    width: 100%;       
+    height: 250px;     
+    margin: 10px auto;
+    z-index: 10;
+    pointer-events: auto;
+    display: flex;
+    padding-right: 20%;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: visible;  /* Keeps the tree inside the rounded corners */
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+   
+  }
 
+  #treeContainer svg {
+    
+    width: 100%;
+    height: 170px;
+    right:20%;
+    display: block;
+     overflow: visible; 
+    
  
 }
 }
