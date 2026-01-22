@@ -262,10 +262,9 @@ body {
 
 #treeContainer svg { 
   display: block; 
-  max-width: 100%; /* Adjusted to ensure visibility */
+  max-width: 450px; /* Adjusted to ensure visibility */
   max-height: 100%; 
 }
-
 .fruit {
   fill: #ff4757;
   stroke: #ffffff;
