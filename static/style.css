@@ -19,7 +19,11 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
-
+.completed {
+  text-decoration: line-through;
+  color: var(--muted); /* Optional: dims the text to look "done" */
+  opacity: 0.7;        /* Optional: makes it look less prominent */
+}
 /* --- HEADER & NAVIGATION --- */
 .topbar {
   padding: 24px 16px 12px;
@@ -56,6 +60,7 @@ body {
 .card h2 { margin: 0 0 8px; font-size: 20px; }
 .card p { color: var(--muted); margin-top: 6px; }
 
+/* --- TREE CONTAINER --- */
 /* --- TREE CONTAINER --- */
 #treeContainer {
   position: relative;
