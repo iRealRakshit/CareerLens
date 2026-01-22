@@ -127,7 +127,7 @@ body {
   margin: 10px auto;
   z-index: 10;
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.4);
+  
   border-radius: 12px;
   overflow:visible;
   display: flex;
@@ -273,7 +273,7 @@ button.danger {
   margin: 10px auto;
   z-index: 10;
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.4);
+ 
   border-radius: 12px;
   overflow: visible;
   display: flex;
@@ -295,7 +295,7 @@ button.danger {
   margin: 10px auto;
   z-index: 10;
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.4);
+ 
   border-radius: 12px;
   overflow: visible;
   display: flex;
@@ -320,7 +320,6 @@ button.danger {
     justify-content: center;
     align-items: flex-end;
     overflow: visible;  /* Keeps the tree inside the rounded corners */
-    background: rgba(255, 255, 255, 0.4);
     border-radius: 12px;
    
   }
